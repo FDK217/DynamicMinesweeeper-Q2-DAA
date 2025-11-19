@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic State Minesweeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Setup Modal -->
+    <div class="modal" id="setupModal">
+        <div class="modal-content">
+            <h2>⚙️ Configure Your Game</h2>
+            
+            <div class="setup-form">
+                <div class="form-group">
+                    <label for="boardSize">Board Size:</label>
+                    <select id="boardSize">
+                        <option value="8">8x8 (Small)</option>
+                        <option value="10" selected>10x10 (Medium)</option>
+                        <option value="12">12x12 (Large)</option>
+                        <option value="15">15x15 (Extra Large)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy (10% bombs)</option>
+                        <option value="medium" selected>Medium (15% bombs)</option>
+                        <option value="hard">Hard (25% bombs)</option>
+                        <option value="extreme">Extreme (35% bombs)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="repositionCount">Bomb Reposition Frequency:</label>
+                    <select id="repositionCount">
+                        <option value="2">Every 2 turns (Fast)</option>
+                        <option value="3" selected>Every 3 turns (Normal)</option>
+                        <option value="5">Every 5 turns (Slow)</option>
+                        <option value="10">Every 10 turns (Very Slow)</option>
+                    </select>
+                </div>
+
+                <button class="btn-start" onclick="startGame()">Start Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="container" id="gameContainer" style="display: none;">
+        <h1>🎯 Dynamic Minesweeper</h1>
+        
+        <div class="info-section">
+            <div class="info-box">
+                <label>Turn Count</label>
+                <div class="value" id="turnCounter">0</div>
+            </div>
+            <div class="info-box">
+                <label>Reposition In</label>
+                <div class="value" id="repositionCountdown">3</div>
+            </div>
+            <div class="status-message normal" id="statusMessage">Ready to play! Click a cell to start.</div>
+        </div>
+
+        <div class="game-grid" id="gameGrid"></div>
+
+        <div class="button-group">
+            <button class="btn-restart" onclick="goToSetup()">Back to Setup</button>
+            <button class="btn-play-again" onclick="playAgain()">Play Again</button>
+        </div>
+
+        <footer class="credit">Created by 5053241026 & 5053241003</footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
